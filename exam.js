@@ -3,19 +3,12 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 
-/*-------------------------Implementasi body-parser-------------------------*/
-// penggunaan body-parser untuk ekstrak data request berformat JSON
 app.use(bodyParser.json())
-
-// penggunaan body-parser untuk ekstrak data request dari body
 app.use(bodyParser.urlencoded({ extended: true }))
-
-/*-------------------------Implementasi cors-------------------------*/
-// penggunaan cors agar end point dapat diakses oleh cross platform
 app.use(cors())
 
 
-// ulangan tipe panjang
+// tipe panjang
 app.get("/panjang/:tipe_panjang/:panjang", (req, res) => {
     let tipe_panjang = req.params.tipe_panjang;
     let panjang = Number(req.params.panjang);
@@ -193,7 +186,7 @@ app.post("/hitung", (req, res) => {
 
 
 
-/*---------------------soal remed tipe berat---------------------*/
+/*tipe berat*/
 app.get("/berat/:tipe_berat/:berat", (req, res) => {
     let tipe_berat = req.params.tipe_berat; 
     let berat = Number(req.params.berat);
